@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useRoute } from '@react-navigation/native';
 
+const API_URL = process.env.API_URL;
 
 export function Button(props) {
   const { onPress, title = 'Save' } = props;
@@ -43,7 +44,7 @@ export function ControlButtonRight(props) {
 
 const sendPresData = (usr,sisData,diasData,setModalText,setModalVisible) => {  
   
-  return fetch('http://192.168.0.125:8090/user', {
+  return fetch(`${API_URL}/user`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -65,7 +66,7 @@ const sendPresData = (usr,sisData,diasData,setModalText,setModalVisible) => {
 };
 
 const sendGlucosaData = (usr,glucosaLvl) => {
-  return fetch('http://192.168.0.125:8090/user', {
+  return fetch(`${API_URL}/user`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -79,7 +80,7 @@ const sendGlucosaData = (usr,glucosaLvl) => {
 };
 
 const sendPesoCinturaData = (usr,peso,cintura) => {
-  return fetch('http://192.168.0.125:8090/user', {
+  return fetch(`${API_URL}/user`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
